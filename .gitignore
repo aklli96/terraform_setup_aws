@@ -2,13 +2,16 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+variable.tf
 # C extensions
 *.so
 
 # Distribution / packaging
-.terraform/*
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
 .Python
+.terraform/
 build/
 develop-eggs/
 dist/
