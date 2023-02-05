@@ -7,6 +7,7 @@ variable.tf
 *.so
 
 # Distribution / packaging
+*.pem
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
