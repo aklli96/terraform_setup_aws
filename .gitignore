@@ -10,6 +10,10 @@ variable.tf
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
+**/.terraform/*
+*.terraform*
+*.tfstate
+*.tfstate.*
 .Python
 .terraform/
 build/
