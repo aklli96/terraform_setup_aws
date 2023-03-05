@@ -96,7 +96,7 @@ resource "aws_iam_role" "ec2_role" {
   })
 }
 
-#Attach role to policy
+#Attach policy to role
 resource "aws_iam_policy_attachment" "ec2_policy_role" {
   name = "ec2_attachment"
   roles = [aws_iam_role.ec2_role.name]
