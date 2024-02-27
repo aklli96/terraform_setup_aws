@@ -2,7 +2,7 @@
 resource "aws_security_group" "terraform_sg" {
   name = var.sg_group_name
   description = "Terraform security group"
-  vpc_id = "${var.vpc_id}"
+#  vpc_id = "${var.vpc_id}"
 
   ingress = [{
     description = "HTTP"
@@ -71,9 +71,7 @@ resource "aws_iam_policy" "ec2_policy" {
           "s3:GetObject",
           "s3:*"
         ],
-      "Resource":[
-        "*"
-      ]  
+      Resource = "*"  
       }
     ]
   })
@@ -109,15 +107,21 @@ resource "aws_iam_instance_profile" "ec2_profile" {
   role = aws_iam_role.ec2_role.name
 }
 
+
+resource "aws_key_pair" "ssh_key" {
+  key_name   = "ssh_key"
+  public_key = file("modules/ec2/my-key.pub")
+}
+
 #Create ec2 instance
 resource "aws_instance" "app_server" {
   ami           = var.ami
   instance_type = var.ec2_instance_type
-  key_name = "ec2_key_for_terraform"
+  key_name = aws_key_pair.ssh_key.key_name
   iam_instance_profile =  aws_iam_instance_profile.ec2_profile.name
-  vpc_security_group_ids = [data.aws_security_group.lb_sg.id]
+#  vpc_security_group_ids = [data.aws_security_group.lb_sg.id]
   tags = {
-    Name = "testing_server"
+    Name = "ec2_testing_server"
   }
 }
 

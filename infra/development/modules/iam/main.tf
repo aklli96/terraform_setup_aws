@@ -19,6 +19,3 @@ resource "aws_iam_user_group_membership" "user_group_membership" {
   user   = element(var.usernames, count.index)
   groups = [aws_iam_group.dev_group.name, ]
 }
-
-
-
