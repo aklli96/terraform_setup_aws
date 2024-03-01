@@ -11,3 +11,7 @@ output "ec2_instance_public_ip" {
 output "aws_key_pair"{
   value = aws_key_pair.ssh_key.public_key
 }
+
+output "ec2_sg_id"{
+  value = aws_security_group.terraform_sg.id
+}

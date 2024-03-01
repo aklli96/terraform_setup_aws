@@ -12,5 +12,6 @@ terraform {
 provider "aws" {
 	region = "${var.region}"
   access_key = "AKIAQJI4UGD3OS5VZ4MR"
-  secret_key = file("secretkey.txt")
+  secret_key = "${var.IAM_secret}"
 }
+

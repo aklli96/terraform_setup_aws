@@ -12,4 +12,13 @@ variable "sg_group_name"{
   default = "testing_sg_gp"
 }
 
-#variable "vpc_id" {}
+variable "vpc_id" {
+	description = "vpc_id"
+	type = string
+}
+
+
+variable "public_subnet_ids"{
+  description = "public subnet id"
+  type = string
+}

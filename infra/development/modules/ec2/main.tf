@@ -2,7 +2,7 @@
 resource "aws_security_group" "terraform_sg" {
   name = var.sg_group_name
   description = "Terraform security group"
-#  vpc_id = "${var.vpc_id}"
+  vpc_id = var.vpc_id
 
   ingress = [{
     description = "HTTP"
@@ -38,6 +38,7 @@ resource "aws_security_group" "terraform_sg" {
     self = false
   }]
   egress {
+    description = "Allow all outbound traffic"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
@@ -117,6 +118,7 @@ resource "aws_key_pair" "ssh_key" {
 resource "aws_instance" "app_server" {
   ami           = var.ami
   instance_type = var.ec2_instance_type
+  subnet_id = var.public_subnet_ids
   key_name = aws_key_pair.ssh_key.key_name
   iam_instance_profile =  aws_iam_instance_profile.ec2_profile.name
 #  vpc_security_group_ids = [data.aws_security_group.lb_sg.id]
@@ -124,4 +126,3 @@ resource "aws_instance" "app_server" {
     Name = "ec2_testing_server"
   }
 }
-
