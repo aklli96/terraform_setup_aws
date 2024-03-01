@@ -7,7 +7,9 @@ infra/modules/ec2/variable.tf
 *.so
 
 # Distribution / packaging
+*.tfvars
 *.pem
+*.pub
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
