@@ -2,6 +2,7 @@
 Set up AWS services by Terrform
 
 Architechture
+
 ![Screenshot 2024-03-01 171523](https://github.com/aklli96/terraform_setup_aws/assets/103712883/ef4b92d1-492b-4562-9861-4d32602be06e)
 
 
