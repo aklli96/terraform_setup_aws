@@ -38,3 +38,9 @@ db_password = "your password"
 ## Please also generate your own key name "my-key.pub" inside development/modules/ec2
 
 ## You can define your user name in development/modules/iam/variable.tf
+
+
+## How to connect ec2 thru SSH
+```
+ssh -i "my-key.pem" ec2-user@{your_ipv4_public_ip_address}.compute-1.amazonaws.com
+```

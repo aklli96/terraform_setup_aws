@@ -74,3 +74,13 @@ resource "aws_route_table_association" "private"{
     route_table_id = aws_route_table.anthony_private_rt.id
     subnet_id = aws_subnet.anthony_private_subnet[count.index].id
 }
+
+resource "aws_vpc_endpoint" "s3"{
+    vpc_id = aws_vpc.anthony_vpc.id
+    service_name = "com.amazonaws.us-east-1.s3"
+}
+
+resource "aws_vpc_endpoint_route_table_association" "route_table_association"{
+    route_table_id = aws_route_table.anthony_private_rt.id
+    vpc_endpoint_id = aws_vpc_endpoint.s3.id
+}

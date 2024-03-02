@@ -121,8 +121,17 @@ resource "aws_instance" "app_server" {
   subnet_id = var.public_subnet_ids
   key_name = aws_key_pair.ssh_key.key_name
   iam_instance_profile =  aws_iam_instance_profile.ec2_profile.name
-#  vpc_security_group_ids = [data.aws_security_group.lb_sg.id]
+  vpc_security_group_ids = [aws_security_group.terraform_sg.id]
   tags = {
     Name = "ec2_testing_server"
+  }
+}
+
+resource "aws_eip" "anthony_web_eip" {
+  count = 1
+  instance = aws_instance.app_server.id
+  vpc = true
+  tags = {
+    Name = "elastic ip address"
   }
 }
