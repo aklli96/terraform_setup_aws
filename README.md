@@ -28,16 +28,16 @@ Currently, this program can set up
 
 # IAM set up prerequisition
 
-## Please create a file "secrets.tfvars" in development and with the following format
+## Please create a file "secrets.tfvars" in directory "development" with the following format
 ```
 IAM_secret = "your access secrets"
 db_username = "your db user name"
 db_password = "your password"
 ```
 
-## Please also generate your own key name "my-key.pub" inside development/modules/ec2
+Please also generate your own private and public key named "my-key.pem" & "my-key.pub" inside development/modules/ec2
 
-## You can define your user name in development/modules/iam/variable.tf
+You can define your user name in development/modules/iam/variable.tf
 
 
 ## How to connect ec2 thru SSH
