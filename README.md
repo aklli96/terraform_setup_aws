@@ -44,3 +44,8 @@ You can define your user name in development/modules/iam/variable.tf
 ```
 ssh -i "my-key.pem" ec2-user@{your_ipv4_public_ip_address}.compute-1.amazonaws.com
 ```
+
+## How to connect RDS mysql server using ec2
+```
+ssh -i "mysql -h <your RDS mysql endpoint> -P 3306 -u <predefined user name> -p
+```

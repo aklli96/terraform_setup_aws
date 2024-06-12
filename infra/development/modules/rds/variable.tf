@@ -6,13 +6,13 @@ variable "settings"{
             allocated_storage = 10
             engine = "mysql"
             engine_version = "8.0.35"
-            instance_class = "db.t2.micro"
+            instance_class = "db.t3.micro"
             db_name = "Anthony_db"
             skip_final_snapshot = true
         },
         "web_app" = {
             count = 1
-            instance_type = "t2.micro"
+            instance_type = "t3.micro"
         }
     }
 
