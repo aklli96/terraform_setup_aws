@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo dnf -y localinstall https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm
 sudo dnf -y install mysql mysql-community-client
+sudo yum -y install mysql-community-server
 sudo yum update
 sudo yum -y install gcc openssl-devel bzip2-devel libffi-devel zlib-devel make
 cd /tmp
