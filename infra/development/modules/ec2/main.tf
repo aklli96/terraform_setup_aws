@@ -122,6 +122,8 @@ resource "aws_instance" "app_server" {
   key_name = aws_key_pair.ssh_key.key_name
   iam_instance_profile =  aws_iam_instance_profile.ec2_profile.name
   vpc_security_group_ids = [aws_security_group.terraform_sg.id]
+  #defined bash script for pre-configuration
+  user_data = "${file("modules/ec2/userdata.sh")}"
   tags = {
     Name = "ec2_testing_server"
   }
