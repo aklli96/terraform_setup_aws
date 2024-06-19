@@ -28,24 +28,28 @@ Currently, this program can set up
 
 # IAM set up prerequisition
 
+
 ## Please create a file "secrets.tfvars" in directory "development" with the following format
+1. 
 ```
 IAM_secret = "your access secrets"
 db_username = "your db user name"
 db_password = "your password"
 ```
+2. Fill in your access key into modules/provider.tf, you are able to generate access key in aws console, right hand corner -> Security credentials -> create access key
 
-Please also generate your own private and public key named "my-key.pem" & "my-key.pub" inside development/modules/ec2
+3. Please also generate your own private and public key named "my-key.pem" & "my-key.pub" inside development/modules/ec2
 
-You can define your user name in development/modules/iam/variable.tf
+4. You can define your user name in development/modules/iam/variable.tf
 
 
 ## How to connect ec2 thru SSH
 ```
-ssh -i "my-key.pem" ec2-user@{your_ipv4_public_ip_address}.compute-1.amazonaws.com
+cd modules/ec2
+ssh -i my-key.pem ec2-user@ec2-{your_ipv4_public_ip_address}.compute-1.amazonaws.com
 ```
 
 ## How to connect RDS mysql server using ec2
 ```
-ssh -i "mysql -h <your RDS mysql endpoint> -P 3306 -u <predefined user name> -p
+mysql -h <your RDS mysql endpoint> -P 3306 -u <predefined user name> -p
 ```
